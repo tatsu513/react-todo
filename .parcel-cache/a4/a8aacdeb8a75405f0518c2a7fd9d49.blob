@@ -1,0 +1,130 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _reactRedux = require('react-redux');
+  var _util = require('./util');
+  var _api = require('./api');
+  var _color = require('./color');
+  var _Button = require('./Button');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/DeleteDialog.tsx", _s = $RefreshSig$();
+  const DeleteDialog = ({className}) => {
+    _s();
+    const dispatch = _reactRedux.useDispatch();
+    const deletingCardID = _reactRedux.useSelector(state => state.deletingCardID);
+    const cardsOrder = _reactRedux.useSelector(state => state.cardsOrder);
+    const onConfirm = () => {
+      const cardID = deletingCardID;
+      if (!cardID) return;
+      dispatch({
+        type: 'Dialog.ConfirmDelete'
+      });
+      _api.api('DELETE /v1/cards', {
+        id: cardID
+      });
+      const patch = _util.reorderPatch(cardsOrder, cardID);
+      _api.api('PATCH /v1/cardsOrder', patch);
+    };
+    const onCancel = () => dispatch({
+      type: 'Dialog.CancelDelete'
+    });
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        className: className,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(Message, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37,
+          columnNumber: 7
+        }
+      }, "Are you sure to delete?"), /*#__PURE__*/_reactDefault.default.createElement(ButtonRow, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(DeleteButton, {
+        onClick: onConfirm,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40,
+          columnNumber: 9
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(CancelButton, {
+        autoFocus: true,
+        onClick: onCancel,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41,
+          columnNumber: 9
+        }
+      })))
+    );
+  };
+  _s(DeleteDialog, "Qa91UmS/uyDpUIS7PHd68snhyIs=", false, function () {
+    return [_reactRedux.useDispatch, _reactRedux.useSelector, _reactRedux.useSelector];
+  });
+  _c = DeleteDialog;
+  const Container = _styledComponentsDefault.default.div`
+  min-width: 350px;
+  box-shadow: 0 8px 12px hsla(0, 0%, 0%, 0.2);
+  border: solid 1px ${_color.Silver};
+  border-radius: 4px;
+  background-color: ${_color.White};
+`;
+  _c2 = Container;
+  const Message = _styledComponentsDefault.default.div`
+  min-height: 100px;
+  padding: 16px;
+  color: ${_color.Black};
+  font-size: 14px;
+  line-height: 1.7;
+`;
+  _c3 = Message;
+  const ButtonRow = _styledComponentsDefault.default.div`
+  display: flex;
+  padding: 0 16px 16px;
+
+  > :not(:first-child) {
+    margin-left: 8px;
+  }
+`;
+  _c4 = ButtonRow;
+  const DeleteButton = _styledComponentsDefault.default(_Button.DangerButton).attrs({
+    children: 'Delete'
+  })``;
+  _c5 = DeleteButton;
+  const CancelButton = _styledComponentsDefault.default(_Button.Button).attrs({
+    children: 'Cancel'
+  })``;
+  _c6 = CancelButton;
+  exports.default = DeleteDialog;
+  var _c, _c2, _c3, _c4, _c5, _c6;
+  $RefreshReg$(_c, "DeleteDialog");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "Message");
+  $RefreshReg$(_c4, "ButtonRow");
+  $RefreshReg$(_c5, "DeleteButton");
+  $RefreshReg$(_c6, "CancelButton");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

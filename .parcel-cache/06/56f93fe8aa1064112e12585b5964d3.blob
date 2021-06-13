@@ -1,0 +1,35 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "reducer", function () {
+  return reducer;
+});
+var _immer = require('immer');
+var _immerDefault = _parcelHelpers.interopDefault(_immer);
+const initialState = {
+  filterValue: '',
+  cardsOrder: {}
+};
+const reducer = _immerDefault.default((draft, action) => {
+  switch (action.type) {
+    case 'Filter.SetFilter':
+      {
+        const {value} = action.payload;
+        draft.filterValue = value;
+        return;
+      }
+    case 'App.SetColumns':
+      {
+        const {columns} = action.payload;
+        draft.columns = columns;
+        return;
+      }
+    case 'App.SetCards':
+      {
+        return;
+      }
+    default:
+      {
+        const _ = action;
+      }
+  }
+}, initialState);

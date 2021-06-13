@@ -1,0 +1,13 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "randomID", function () {
+  return randomID;
+});
+function randomID() {
+  const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-';
+  let id = '';
+  for (let i = 12; i > 0; i--) {
+    id += alphabet[Math.random() * 64 | 0];
+  }
+  return id;
+}

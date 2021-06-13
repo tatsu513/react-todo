@@ -1,0 +1,246 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _color = require('./color');
+  var _Card = require('./Card');
+  var _CardDefault = _parcelHelpers.interopDefault(_Card);
+  var _icon = require('./icon');
+  var _InputForm2 = require('./InputForm');
+  var _InputForm2Default = _parcelHelpers.interopDefault(_InputForm2);
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/Column.tsx", _s = $RefreshSig$();
+  const Column = ({title, cards: rawCards, onCardDragStart, onCardDrop, onCardDeleteClick, text, onTextChange, onTextConfirm, onTextCancel}) => {
+    _s();
+    const filterValue = rawFilterValue?.trim?.();
+    const keywords = filterValue?.toLowerCase?.()?.split?.(/\s+/g) ?? [];
+    const cards = rawCards?.filter?.(({text}) => keywords?.every?.(w => text?.toLowerCase?.()?.includes?.(w)));
+    const totalCount = rawCards?.length ?? -1;
+    const [inputMode, setInputMode] = _react.useState(false);
+    const toggleInput = () => setInputMode(v => !v);
+    const confirmInput = () => {
+      onTextConfirm?.();
+    };
+    const cancelInput = () => {
+      setInputMode(false);
+      onTextCancel?.();
+    };
+    const [draggingCardID, setDraggingCardID] = _react.useState(undefined);
+    const handleCardDragStart = id => {
+      setDraggingCardID(id);
+      onCardDragStart?.(id);
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(Header, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61,
+          columnNumber: 7
+        }
+      }, totalCount >= 0 && /*#__PURE__*/_reactDefault.default.createElement(CountBadge, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 62,
+          columnNumber: 29
+        }
+      }, totalCount), /*#__PURE__*/_reactDefault.default.createElement(ColumnName, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63,
+          columnNumber: 9
+        }
+      }, title), /*#__PURE__*/_reactDefault.default.createElement(AddButton, {
+        onClick: toggleInput,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65,
+          columnNumber: 9
+        }
+      })), inputMode && /*#__PURE__*/_reactDefault.default.createElement(InputForm, {
+        value: text,
+        onChange: onTextChange,
+        onConfirm: confirmInput,
+        onCancel: cancelInput,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69,
+          columnNumber: 9
+        }
+      }), !cards ? /*#__PURE__*/_reactDefault.default.createElement(Loading, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 77,
+          columnNumber: 9
+        }
+      }) : /*#__PURE__*/_reactDefault.default.createElement(_reactDefault.default.Fragment, null, filterValue && /*#__PURE__*/_reactDefault.default.createElement(ResultCount, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80,
+          columnNumber: 27
+        }
+      }, cards.length, " results"), /*#__PURE__*/_reactDefault.default.createElement(VerticalScroll, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82,
+          columnNumber: 11
+        }
+      }, cards.map(({id, text}, i) => /*#__PURE__*/_reactDefault.default.createElement(_Card.CardDropArea, {
+        key: id,
+        disabled: draggingCardID !== undefined && (id === draggingCardID || cards[i - 1]?.id === draggingCardID),
+        onDrop: () => onCardDrop?.(id),
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84,
+          columnNumber: 15
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_CardDefault.default, {
+        text: text,
+        onDragStart: () => handleCardDragStart(id),
+        onDragEnd: () => setDraggingCardID(undefined),
+        onDeleteClick: () => onCardDeleteClick?.(id),
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92,
+          columnNumber: 17
+        }
+      }))), /*#__PURE__*/_reactDefault.default.createElement(_Card.CardDropArea, {
+        style: {
+          height: '100%'
+        },
+        disabled: draggingCardID !== undefined && cards[cards.length - 1]?.id === draggingCardID,
+        onDrop: () => onCardDrop?.(null),
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 100,
+          columnNumber: 13
+        }
+      }))))
+    );
+  };
+  _s(Column, "MWv6/UTuPpmv7h1xeez8wFIlaDE=");
+  _c = Column;
+  const Loading = _styledComponentsDefault.default.div.attrs({
+    children: 'Loading...'
+  })`
+  padding: 8px;
+  font-size: 14px;
+`;
+  _c2 = Loading;
+  const ResultCount = _styledComponentsDefault.default.div`
+  color: ${_color.Black};
+  font-size: 12px;
+  text-align: center;
+`;
+  _c3 = ResultCount;
+  const Container = _styledComponentsDefault.default.div`
+  display: flex;
+  flex-flow: column;
+  width: 355px;
+  height: 100%;
+  border: solid 1px ${_color.Silver};
+  border-radius: 6px;
+  background-color: ${_color.LightSilver};
+
+  > :not(:last-child) {
+    flex-shrink: 0;
+  }
+`;
+  _c4 = Container;
+  const InputForm = _styledComponentsDefault.default(_InputForm2Default.default)`
+  padding: 8px;
+`;
+  _c5 = InputForm;
+  const Header = _styledComponentsDefault.default.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px;
+`;
+  _c6 = Header;
+  const CountBadge = _styledComponentsDefault.default.div`
+  margin-right: 8px;
+  border-radius: 20px;
+  padding: 2px 6px;
+  color: ${_color.Black};
+  background-color: ${_color.Silver};
+  font-size: 12px;
+  line-height: 1;
+`;
+  _c7 = CountBadge;
+  const ColumnName = _styledComponentsDefault.default.div`
+  color: ${_color.Black};
+  font-size: 14px;
+  font-weight: bold;
+`;
+  _c8 = ColumnName;
+  const AddButton = _styledComponentsDefault.default.button.attrs({
+    type: 'button',
+    children: /*#__PURE__*/_reactDefault.default.createElement(_icon.PlusIcon, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 171,
+        columnNumber: 13
+      }
+    })
+  })`
+  margin-left: auto;
+  color: ${_color.Black};
+
+  :hover {
+    color: ${_color.Blue};
+  }
+`;
+  _c9 = AddButton;
+  const VerticalScroll = _styledComponentsDefault.default.div`
+  height: 100%;
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+
+  > :not(:first-child) {
+    margin-top: 8px;
+  }
+`;
+  _c10 = VerticalScroll;
+  exports.default = Column;
+  var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10;
+  $RefreshReg$(_c, "Column");
+  $RefreshReg$(_c2, "Loading");
+  $RefreshReg$(_c3, "ResultCount");
+  $RefreshReg$(_c4, "Container");
+  $RefreshReg$(_c5, "InputForm");
+  $RefreshReg$(_c6, "Header");
+  $RefreshReg$(_c7, "CountBadge");
+  $RefreshReg$(_c8, "ColumnName");
+  $RefreshReg$(_c9, "AddButton");
+  $RefreshReg$(_c10, "VerticalScroll");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,46 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _react = require('react');
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactDom = require('react-dom');
+  var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
+  var _GlobalStyle = require('./GlobalStyle');
+  var _App = require('./App');
+  var _AppDefault = _parcelHelpers.interopDefault(_App);
+  var _redux = require('redux');
+  var _reactRedux = require('react-redux');
+  var _reducer = require('./reducer');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/index.tsx";
+  const store = _redux.createStore(_reducer.reducer);
+  _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(_reactRedux.Provider, {
+    store: store,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 3
+    }
+  }, /*#__PURE__*/_reactDefault.default.createElement(_GlobalStyle.GlobalStyle, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 5
+    }
+  }), /*#__PURE__*/_reactDefault.default.createElement(_AppDefault.default, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 5
+    }
+  })), document.getElementById('app'));
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

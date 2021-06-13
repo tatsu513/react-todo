@@ -1,0 +1,99 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _color = require('./color');
+  var _reactRedux = require('react-redux');
+  var _icon = require('./icon');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/CardFilter.tsx", _s = $RefreshSig$();
+  const CardFilter = () => {
+    _s();
+    const store = _reactRedux.useStore();
+    const dispatch = _reactRedux.useDispatch();
+    const [value, setValue] = _react.useState('');
+    _react.useEffect(() => {
+      const timer = setTimeout(() => dispatch({
+        type: 'Filter.SetFilter',
+        payload: {
+          value
+        }
+      }), 400);
+      return () => clearTimeout(timer);
+    }, [dispatch, value]);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(SearchIcon, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 7
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(Input, {
+        value: value,
+        onChange: ev => setValue(ev.currentTarget.value),
+        placeholder: "Filter cards",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 7
+        }
+      }))
+    );
+  };
+  _s(CardFilter, "faCQQg0u3TGGBICCILi1Vw+/WeQ=", false, function () {
+    return [_reactRedux.useStore, _reactRedux.useDispatch];
+  });
+  _c = CardFilter;
+  const Container = _styledComponentsDefault.default.label`
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  border: solid 1px ${_color.Silver};
+  border-radius: 3px;
+`;
+  _c2 = Container;
+  const SearchIcon = _styledComponentsDefault.default(_icon.SearchIcon)`
+  margin: 0 4px 0 8px;
+  font-size: 16px;
+  color: ${_color.Silver};
+`;
+  _c3 = SearchIcon;
+  const Input = _styledComponentsDefault.default.input.attrs({
+    type: 'search'
+  })`
+  width: 100%;
+  padding: 6px 8px 6px 0;
+  color: ${_color.White};
+  font-size: 14px;
+
+  :focus {
+    outline: none;
+  }
+`;
+  _c4 = Input;
+  exports.default = CardFilter;
+  var _c, _c2, _c3, _c4;
+  $RefreshReg$(_c, "CardFilter");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "SearchIcon");
+  $RefreshReg$(_c4, "Input");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

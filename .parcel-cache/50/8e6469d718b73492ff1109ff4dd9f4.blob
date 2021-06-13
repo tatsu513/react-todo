@@ -1,0 +1,236 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "CardDropArea", function () {
+    return CardDropArea;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _color = require('./color');
+  var _icon = require('./icon');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/Card.tsx", _s = $RefreshSig$(), _s2 = $RefreshSig$(), _s3 = $RefreshSig$();
+  const DropArea = ({disabled, onDrop, children, className, style}) => {
+    _s();
+    const [isTarget, setIsTarget] = _react.useState(false);
+    const visible = !disabled && isTarget;
+    const [dragOver, onDragOver] = useDragAutoLeave();
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(DropAreaContainer, {
+        style: style,
+        className: className,
+        onDragOver: ev => {
+          if (disabled) return;
+          ev.preventDefault();
+          onDragOver(() => setIsTarget(false));
+        },
+        onDragEnter: () => {
+          if (disabled || dragOver.current) return;
+          setIsTarget(true);
+        },
+        onDrop: () => {
+          if (disabled) return;
+          setIsTarget(false);
+          onDrop?.();
+        },
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(DropAreaIndicator, {
+        style: {
+          height: !visible ? 0 : undefined,
+          borderWidth: !visible ? 0 : undefined
+        },
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48,
+          columnNumber: 7
+        }
+      }), children)
+    );
+  };
+  _s(DropArea, "2EXwqRIH1wmRIfJRC9sywt3vxBY=", false, function () {
+    return [useDragAutoLeave];
+  });
+  _c = DropArea;
+  /**
+  * dragOver イベントが継続中かどうかのフラグを ref として返す
+  *
+  * timeout 経過後に自動でフラグが false になる
+  *
+  * @param timeout 自動でフラグを false にするまでの時間 (ms)
+  */
+  const useDragAutoLeave = (timeout = 100) => {
+    _s2();
+    const dragOver = _react.useRef(false);
+    const timer = _react.useRef(0);
+    return [dragOver, /**
+    * @param onDragLeave フラグが false になるときに呼ぶコールバック
+    */
+    onDragLeave => {
+      clearTimeout(timer.current);
+      dragOver.current = true;
+      // @ts-ignore
+      timer.current = setTimeout(() => {
+        dragOver.current = false;
+        onDragLeave?.();
+      }, timeout);
+    }];
+  };
+  _s2(useDragAutoLeave, "O9NRjzkvDm+w3XRjwZeWiVT8Wxs=");
+  const DropAreaContainer = _styledComponentsDefault.default.div`
+  > :not(:first-child) {
+    margin-top: 8px;
+  }
+`;
+  _c2 = DropAreaContainer;
+  const DropAreaIndicator = _styledComponentsDefault.default.div`
+  height: 40px;
+  border: dashed 3px ${_color.Gray};
+  border-radius: 6px;
+  transition: all 50ms ease-out;
+`;
+  _c3 = DropAreaIndicator;
+  const CardDropArea = DropArea;
+  const Card = ({id}) => {
+    _s3();
+    const [drag, setDrag] = _react.useState(false);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        style: {
+          opacity: drag ? 0.5 : undefined
+        },
+        onDragStart: () => {
+          onDragStart?.();
+          setDrag(true);
+        },
+        onDragEnd: () => {
+          onDragEnd?.();
+          setDrag(false);
+        },
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(CheckIcon, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 119,
+          columnNumber: 7
+        }
+      }), text?.split?.(/(https?:\/\/\S+)/g)?.map?.((fragment, i) => i % 2 === 0 ? /*#__PURE__*/_reactDefault.default.createElement(Text, {
+        key: i,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123,
+          columnNumber: 11
+        }
+      }, fragment) : /*#__PURE__*/_reactDefault.default.createElement(Link, {
+        key: i,
+        href: fragment,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 125,
+          columnNumber: 11
+        }
+      }, fragment)), /*#__PURE__*/_reactDefault.default.createElement(DeleteButton, {
+        onClick: onDeleteClick,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 131,
+          columnNumber: 7
+        }
+      }))
+    );
+  };
+  _s3(Card, "NUEdywz3pwk/CQNPzVPqAR7aeQc=");
+  _c4 = Card;
+  const Container = _styledComponentsDefault.default.div.attrs({
+    draggable: true
+  })`
+  position: relative;
+  border: solid 1px ${_color.Silver};
+  border-radius: 6px;
+  box-shadow: 0 1px 3px hsla(0, 0%, 7%, 0.1);
+  padding: 8px 32px;
+  background-color: ${_color.White};
+  cursor: move;
+`;
+  _c5 = Container;
+  const CheckIcon = _styledComponentsDefault.default(_icon.CheckIcon)`
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  color: ${_color.Green};
+`;
+  _c6 = CheckIcon;
+  const DeleteButton = _styledComponentsDefault.default.button.attrs({
+    type: 'button',
+    children: /*#__PURE__*/_reactDefault.default.createElement(_icon.TrashIcon, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 157,
+        columnNumber: 13
+      }
+    })
+  })`
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  font-size: 14px;
+  color: ${_color.Gray};
+
+  :hover {
+    color: ${_color.Red};
+  }
+`;
+  _c7 = DeleteButton;
+  const Text = _styledComponentsDefault.default.span`
+  color: ${_color.Black};
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+`;
+  _c8 = Text;
+  const Link = _styledComponentsDefault.default.a.attrs({
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  })`
+  color: ${_color.Blue};
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+`;
+  _c9 = Link;
+  exports.default = Card;
+  var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9;
+  $RefreshReg$(_c, "DropArea");
+  $RefreshReg$(_c2, "DropAreaContainer");
+  $RefreshReg$(_c3, "DropAreaIndicator");
+  $RefreshReg$(_c4, "Card");
+  $RefreshReg$(_c5, "Container");
+  $RefreshReg$(_c6, "CheckIcon");
+  $RefreshReg$(_c7, "DeleteButton");
+  $RefreshReg$(_c8, "Text");
+  $RefreshReg$(_c9, "Link");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

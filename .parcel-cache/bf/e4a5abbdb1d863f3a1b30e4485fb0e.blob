@@ -1,0 +1,120 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _color = require('./color');
+  var _Button = require('./Button');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/InputForm.tsx";
+  const InputForm = ({value, onChange, onConfirm, onCancel, className}) => {
+    const disabled = !value?.trim?.();
+    const handleConfirm = () => {
+      if (disabled) return;
+      onConfirm?.();
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        className: className,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(Input, {
+        autoFocus: true,
+        placeholder: "Enter a note",
+        value: value,
+        onChange: ev => onChange?.(ev.currentTarget.value),
+        onKeyDown: ev => {
+          if (!((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter')) return;
+          handleConfirm();
+        },
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 7
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(ButtonRow, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(AddButton, {
+        disabled: disabled,
+        onClick: handleConfirm,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39,
+          columnNumber: 9
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(CancelButton, {
+        onClick: onCancel,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40,
+          columnNumber: 9
+        }
+      })))
+    );
+  };
+  _c = InputForm;
+  const Container = _styledComponentsDefault.default.div``;
+  _c2 = Container;
+  const Input = _styledComponentsDefault.default.textarea`
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  border: solid 1px ${_color.Silver};
+  border-radius: 3px;
+  padding: 6px 8px;
+  background-color: ${_color.White};
+  font-size: 14px;
+  line-height: 1.7;
+
+  :focus {
+    outline: none;
+    border-color: ${_color.Blue};
+  }
+`;
+  _c3 = Input;
+  const ButtonRow = _styledComponentsDefault.default.div`
+  display: flex;
+
+  > :not(:first-child) {
+    margin-left: 8px;
+  }
+`;
+  _c4 = ButtonRow;
+  const AddButton = _styledComponentsDefault.default(_Button.ConfirmButton).attrs({
+    children: 'Add'
+  })``;
+  _c5 = AddButton;
+  const CancelButton = _styledComponentsDefault.default(_Button.Button).attrs({
+    children: 'Cancel'
+  })``;
+  _c6 = CancelButton;
+  exports.default = InputForm;
+  var _c, _c2, _c3, _c4, _c5, _c6;
+  $RefreshReg$(_c, "InputForm");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "Input");
+  $RefreshReg$(_c4, "ButtonRow");
+  $RefreshReg$(_c5, "AddButton");
+  $RefreshReg$(_c6, "CancelButton");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

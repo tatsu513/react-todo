@@ -1,0 +1,74 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "Navy", function () {
+  return Navy;
+});
+_parcelHelpers.export(exports, "Blue", function () {
+  return Blue;
+});
+_parcelHelpers.export(exports, "Aqua", function () {
+  return Aqua;
+});
+_parcelHelpers.export(exports, "Teal", function () {
+  return Teal;
+});
+_parcelHelpers.export(exports, "Olive", function () {
+  return Olive;
+});
+_parcelHelpers.export(exports, "Green", function () {
+  return Green;
+});
+_parcelHelpers.export(exports, "Lime", function () {
+  return Lime;
+});
+_parcelHelpers.export(exports, "Yellow", function () {
+  return Yellow;
+});
+_parcelHelpers.export(exports, "Orange", function () {
+  return Orange;
+});
+_parcelHelpers.export(exports, "Red", function () {
+  return Red;
+});
+_parcelHelpers.export(exports, "Maroon", function () {
+  return Maroon;
+});
+_parcelHelpers.export(exports, "Fuchsia", function () {
+  return Fuchsia;
+});
+_parcelHelpers.export(exports, "Purple", function () {
+  return Purple;
+});
+_parcelHelpers.export(exports, "Black", function () {
+  return Black;
+});
+_parcelHelpers.export(exports, "Gray", function () {
+  return Gray;
+});
+_parcelHelpers.export(exports, "Silver", function () {
+  return Silver;
+});
+_parcelHelpers.export(exports, "LightSilver", function () {
+  return LightSilver;
+});
+_parcelHelpers.export(exports, "White", function () {
+  return White;
+});
+const Navy = '#001f3f';
+const Blue = '#0074D9';
+const Aqua = '#7FDBFF';
+const Teal = '#39CCCC';
+const Olive = '#3D9970';
+const Green = '#2ECC40';
+const Lime = '#01FF70';
+const Yellow = '#FFDC00';
+const Orange = '#FF851B';
+const Red = '#FF4136';
+const Maroon = '#85144b';
+const Fuchsia = '#F012BE';
+const Purple = '#B10DC9';
+const Black = '#111111';
+const Gray = '#AAAAAA';
+const Silver = '#D0D0D0';
+const LightSilver = '#F8F8F8';
+const White = '#FFFFFF';

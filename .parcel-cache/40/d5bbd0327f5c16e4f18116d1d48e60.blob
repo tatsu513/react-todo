@@ -1,0 +1,47 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "randomID", function () {
+  return randomID;
+});
+_parcelHelpers.export(exports, "sortBy", function () {
+  return sortBy;
+});
+_parcelHelpers.export(exports, "reorderPatch", function () {
+  return reorderPatch;
+});
+function randomID() {
+  const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-';
+  let id = '';
+  for (let i = 12; i > 0; i--) {
+    id += alphabet[Math.random() * 64 | 0];
+  }
+  return id;
+}
+function sortBy(list, order, head) {
+  const map = list.reduce((m, e) => m.set(e.id, e), new Map());
+  const sorted = [];
+  let id = order[head];
+  for (let i = list.length; i > 0; i--) {
+    if (!id || id === head) break;
+    const e = map.get(id);
+    if (e) sorted.push(e);
+    id = order[id];
+  }
+  return sorted;
+}
+function reorderPatch(order, id, toID = null) {
+  const patch = {};
+  if (id === toID || order[id] === toID) {
+    return patch;
+  }
+  const [deleteKey] = Object.entries(order).find(([, v]) => v && v === id) || [];
+  if (deleteKey) {
+    patch[deleteKey] = order[id];
+  }
+  const [insertKey] = Object.entries(order).find(([, v]) => v && v === toID) || [];
+  if (insertKey) {
+    patch[insertKey] = id;
+  }
+  patch[id] = toID;
+  return patch;
+}

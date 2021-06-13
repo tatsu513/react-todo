@@ -1,0 +1,142 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _color = require('./color');
+  var _icon = require('./icon');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/Card.tsx", _s = $RefreshSig$();
+  Card.DropArea = DropArea;
+  const Card = ({text}) => {
+    _s();
+    const [drag, setDrag] = _react.useState(false);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        style: {
+          opacity: drag ? 0.5 : undefined
+        },
+        onDragStart: () => {
+          setDrag(true);
+        },
+        onDragEnd: () => {
+          setDrag(false);
+        },
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(CheckIcon, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20,
+          columnNumber: 7
+        }
+      }), text?.split?.(/(https?:\/\/\S+)/g)?.map?.((fragment, i) => i % 2 === 0 ? /*#__PURE__*/_reactDefault.default.createElement(Text, {
+        key: i,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 11
+        }
+      }, fragment) : /*#__PURE__*/_reactDefault.default.createElement(Link, {
+        key: i,
+        href: fragment,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 11
+        }
+      }, fragment)), /*#__PURE__*/_reactDefault.default.createElement(DeleteButton, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32,
+          columnNumber: 7
+        }
+      }))
+    );
+  };
+  _s(Card, "NUEdywz3pwk/CQNPzVPqAR7aeQc=");
+  _c = Card;
+  const Container = _styledComponentsDefault.default.div.attrs({
+    draggable: true
+  })`
+  position: relative;
+  border: solid 1px ${_color.Silver};
+  border-radius: 6px;
+  box-shadow: 0 1px 3px hsla(0, 0%, 7%, 0.1);
+  padding: 8px 32px;
+  background-color: ${_color.White};
+  cursor: move;
+`;
+  _c2 = Container;
+  const CheckIcon = _styledComponentsDefault.default(_icon.CheckIcon)`
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  color: ${_color.Green};
+`;
+  _c3 = CheckIcon;
+  const DeleteButton = _styledComponentsDefault.default.button.attrs({
+    type: 'button',
+    children: /*#__PURE__*/_reactDefault.default.createElement(_icon.TrashIcon, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58,
+        columnNumber: 13
+      }
+    })
+  })`
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  font-size: 14px;
+  color: ${_color.Gray};
+
+  :hover {
+    color: ${_color.Red};
+  }
+`;
+  _c4 = DeleteButton;
+  const Text = _styledComponentsDefault.default.span`
+  color: ${_color.Black};
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+`;
+  _c5 = Text;
+  const Link = _styledComponentsDefault.default.a.attrs({
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  })`
+  color: ${_color.Blue};
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+`;
+  _c6 = Link;
+  exports.default = Card;
+  var _c, _c2, _c3, _c4, _c5, _c6;
+  $RefreshReg$(_c, "Card");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "CheckIcon");
+  $RefreshReg$(_c4, "DeleteButton");
+  $RefreshReg$(_c5, "Text");
+  $RefreshReg$(_c6, "Link");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,11 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "reducer", function () {
+  return reducer;
+});
+var _immer = require('immer');
+var _immerDefault = _parcelHelpers.interopDefault(_immer);
+const initialState = {
+  filterValue: 'test values'
+};
+const reducer = _immerDefault.default((draft, action) => {}, initialState);

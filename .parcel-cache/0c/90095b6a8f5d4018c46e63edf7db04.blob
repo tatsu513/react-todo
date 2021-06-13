@@ -1,0 +1,179 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _Header = require('./Header');
+  var _HeaderDefault = _parcelHelpers.interopDefault(_Header);
+  var _Column = require('./Column');
+  var _ColumnDefault = _parcelHelpers.interopDefault(_Column);
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/App.tsx", _s = $RefreshSig$();
+  const App = () => {
+    _s();
+    const [filterValue, setFilterValue] = _react.useState('');
+    const [columns, setColumns] = _react.useState([{
+      id: 'A',
+      title: 'TODO',
+      cards: [{
+        id: 'a',
+        text: '朝食をとる🍞'
+      }, {
+        id: 'b',
+        text: 'SNSをチェックする🐦'
+      }, {
+        id: 'c',
+        text: '布団に入る (:3[___]'
+      }]
+    }, {
+      id: 'B',
+      title: 'Doing',
+      cards: [{
+        id: 'd',
+        text: '顔を洗う👐'
+      }, {
+        id: 'e',
+        text: '歯を磨く🦷'
+      }]
+    }, {
+      id: 'C',
+      title: 'Waiting',
+      cards: []
+    }, {
+      id: 'D',
+      title: 'Done',
+      cards: [{
+        id: 'f',
+        text: '布団から出る (:3っ)っ -=三[＿＿]'
+      }]
+    }]);
+    const [draggingCardID, setDraggingCardID] = _react.useState(undefined);
+    const dropCardTo = toID => {
+      const fromID = draggingCardID;
+      if (!fromID) return;
+      setDraggingCardID(undefined);
+      if (fromID === toID) return;
+      setColumns(columns => {
+        const card = columns.flatMap(col => col.cards).find(c => c.id === fromID);
+        if (!card) {
+          return columns;
+        }
+        return columns.map(column => {
+          let newColumn = column;
+          if (newColumn.cards.some(c => c.id === fromID)) {
+            newColumn = {
+              ...newColumn,
+              cards: newColumn.cards.filter(c => c.id !== fromID)
+            };
+          }
+          // 列の末尾に移動
+          if (newColumn.id === toID) {
+            newColumn = {
+              ...newColumn,
+              cards: [...newColumn.cards, card]
+            };
+                      // 列の末尾以外に移動
+} else // 列の末尾以外に移動
+          if (newColumn.cards.some(c => c.id === toID)) {
+            newColumn = {
+              ...newColumn,
+              cards: newColumn.cards.flatMap(c => c.id === toID ? [card, c] : [c])
+            };
+          }
+          return newColumn;
+        });
+      });
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_HeaderDefault.default, {
+        filterValue: filterValue,
+        onFilterChange: setFilterValue,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 90,
+          columnNumber: 7
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(MainArea, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(HorizontalScroll, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 93,
+          columnNumber: 9
+        }
+      }, columns.map(({id: columnID, title, cards}) => /*#__PURE__*/_reactDefault.default.createElement(_ColumnDefault.default, {
+        key: columnID,
+        title: title,
+        filterValue: filterValue,
+        cards: cards,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 95,
+          columnNumber: 13
+        }
+      })))))
+    );
+  };
+  _s(App, "ciAiQvVhEsX0CHVKlcBDb1qSMiE=");
+  _c = App;
+  const Container = _styledComponentsDefault.default.div`
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+`;
+  _c2 = Container;
+  const MainArea = _styledComponentsDefault.default.div`
+  height: 100%;
+  padding: 16px 0;
+  overflow-y: auto;
+`;
+  _c3 = MainArea;
+  const HorizontalScroll = _styledComponentsDefault.default.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  > * {
+    margin-left: 16px;
+    flex-shrink: 0;
+  }
+
+  ::after {
+    display: block;
+    flex: 0 0 16px;
+    content: '';
+  }
+`;
+  _c4 = HorizontalScroll;
+  exports.default = App;
+  var _c, _c2, _c3, _c4;
+  $RefreshReg$(_c, "App");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "MainArea");
+  $RefreshReg$(_c4, "HorizontalScroll");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

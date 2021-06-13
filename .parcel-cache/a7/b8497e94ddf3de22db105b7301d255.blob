@@ -1,0 +1,148 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _Header2 = require('./Header');
+  var _Column = require('./Column');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/App.tsx";
+  const App = () => {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(Header, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9,
+          columnNumber: 7
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(MainArea, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(HorizontalScroll, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_Column.Column, {
+        title: "TODO",
+        cards: [{
+          id: 'a',
+          text: '朝食をとる🍞'
+        }, {
+          id: 'b',
+          text: 'SNSをチェックする🐦'
+        }, {
+          id: 'c',
+          text: '布団に入る (:3[___]'
+        }],
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13,
+          columnNumber: 11
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(_Column.Column, {
+        title: "Doing",
+        cards: [{
+          id: 'd',
+          text: '顔を洗う👐'
+        }, {
+          id: 'e',
+          text: '歯を磨く🦷'
+        }],
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21,
+          columnNumber: 11
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(_Column.Column, {
+        title: "Waiting",
+        cards: [],
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 11
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(_Column.Column, {
+        title: "Done",
+        cards: [{
+          id: 'f',
+          text: '布団から出る (:3っ)っ -=三[＿＿]'
+        }],
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 11
+        }
+      }))))
+    );
+  };
+  _c = App;
+  const Container = _styledComponentsDefault.default.div`
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+`;
+  _c2 = Container;
+  const Header = _styledComponentsDefault.default(_Header2.Header)`
+  flex-shrink: 0;
+`;
+  _c3 = Header;
+  const MainArea = _styledComponentsDefault.default.div`
+  height: 100%;
+  padding: 16px 0;
+  overflow-y: auto;
+`;
+  _c4 = MainArea;
+  const HorizontalScroll = _styledComponentsDefault.default.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  > * {
+    margin-left: 16px;
+    flex-shrink: 0;
+  }
+
+  ::after {
+    display: block;
+    flex: 0 0 16px;
+    content: '';
+  }
+`;
+  _c5 = HorizontalScroll;
+  exports.default = App;
+  var _c, _c2, _c3, _c4, _c5;
+  $RefreshReg$(_c, "App");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "Header");
+  $RefreshReg$(_c4, "MainArea");
+  $RefreshReg$(_c5, "HorizontalScroll");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

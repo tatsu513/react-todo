@@ -1,0 +1,158 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactRedux = require('react-redux');
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _Header = require('./Header');
+  var _HeaderDefault = _parcelHelpers.interopDefault(_Header);
+  var _Column = require('./Column');
+  var _ColumnDefault = _parcelHelpers.interopDefault(_Column);
+  var _Overlay2 = require('./Overlay');
+  var _Overlay2Default = _parcelHelpers.interopDefault(_Overlay2);
+  var _api = require('./api');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/App.tsx", _s = $RefreshSig$();
+  const App = () => {
+    _s();
+    const dispatch = _reactRedux.useDispatch();
+    const columns = _reactRedux.useSelector(state => state.columns);
+    _react.useEffect(() => {
+      ;
+      (async () => {
+        const columns = await _api.api('GET /v1/columns', null);
+        dispatch({
+          type: 'App.SetColumns',
+          payload: {
+            columns
+          }
+        });
+        const [unorderedCards, cardsOrder] = await Promise.all([_api.api('GET /v1/cards', null), _api.api('GET /v1/cardsOrder', null)]);
+        dispatch({
+          type: 'App.SetCards',
+          payload: {
+            cards: unorderedCards,
+            cardsOrder
+          }
+        });
+      })();
+    }, [dispatch]);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_HeaderDefault.default, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41,
+          columnNumber: 7
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(MainArea, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(HorizontalScroll, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44,
+          columnNumber: 9
+        }
+      }, !columns ? /*#__PURE__*/_reactDefault.default.createElement(Loading, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46,
+          columnNumber: 13
+        }
+      }) : columns.map(({id}) => /*#__PURE__*/_reactDefault.default.createElement(_ColumnDefault.default, {
+        key: id,
+        id: id,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48,
+          columnNumber: 37
+        }
+      })))), /*#__PURE__*/_reactDefault.default.createElement(Overlay, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 54,
+          columnNumber: 9
+        }
+      }), ")}")
+    );
+  };
+  _s(App, "gMGSEFbGW5Tjcyx4+fE5pwAx0cM=", false, function () {
+    return [_reactRedux.useDispatch, _reactRedux.useSelector];
+  });
+  _c = App;
+  const Loading = _styledComponentsDefault.default.div.attrs({
+    children: 'Loading...'
+  })`
+  font-size: 14px;
+`;
+  _c2 = Loading;
+  const Container = _styledComponentsDefault.default.div`
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+`;
+  _c3 = Container;
+  const MainArea = _styledComponentsDefault.default.div`
+  height: 100%;
+  padding: 16px 0;
+  overflow-y: auto;
+`;
+  _c4 = MainArea;
+  const HorizontalScroll = _styledComponentsDefault.default.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  > * {
+    margin-left: 16px;
+    flex-shrink: 0;
+  }
+
+  ::after {
+    display: block;
+    flex: 0 0 16px;
+    content: '';
+  }
+`;
+  _c5 = HorizontalScroll;
+  const Overlay = _styledComponentsDefault.default(_Overlay2Default.default)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+  _c6 = Overlay;
+  exports.default = App;
+  var _c, _c2, _c3, _c4, _c5, _c6;
+  $RefreshReg$(_c, "App");
+  $RefreshReg$(_c2, "Loading");
+  $RefreshReg$(_c3, "Container");
+  $RefreshReg$(_c4, "MainArea");
+  $RefreshReg$(_c5, "HorizontalScroll");
+  $RefreshReg$(_c6, "Overlay");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

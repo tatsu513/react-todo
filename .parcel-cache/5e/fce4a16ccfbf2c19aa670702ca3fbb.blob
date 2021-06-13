@@ -1,0 +1,289 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactDom = require('react-dom');
+  var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _color = require('./color');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/index.tsx";
+  const App = () => {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(Header, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10,
+          columnNumber: 9
+        }
+      }, "Kanban board"), /*#__PURE__*/_reactDefault.default.createElement("input", {
+        placeholder: "Filter cards",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 9
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(MainArea, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(HorizontalScroll, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(Column, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(ColumnHeader, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18,
+          columnNumber: 13
+        }
+      }, "TODO"), /*#__PURE__*/_reactDefault.default.createElement(Card, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20,
+          columnNumber: 13
+        }
+      }, "朝食をとる🍞"), /*#__PURE__*/_reactDefault.default.createElement(Card, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21,
+          columnNumber: 13
+        }
+      }, "SNSをチェックする🐦"), /*#__PURE__*/_reactDefault.default.createElement(Card, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22,
+          columnNumber: 13
+        }
+      }, "布団に入る (:3[___]")), /*#__PURE__*/_reactDefault.default.createElement(Column, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(ColumnHeader, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 13
+        }
+      }, "Doing"), /*#__PURE__*/_reactDefault.default.createElement(Card, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 13
+        }
+      }, "顔を洗う👐"), /*#__PURE__*/_reactDefault.default.createElement(Card, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 13
+        }
+      }, "歯を磨く🦷")), /*#__PURE__*/_reactDefault.default.createElement(Column, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(ColumnHeader, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33,
+          columnNumber: 13
+        }
+      }, "Waiting")), /*#__PURE__*/_reactDefault.default.createElement(Column, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(ColumnHeader, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37,
+          columnNumber: 13
+        }
+      }, "Done"), /*#__PURE__*/_reactDefault.default.createElement(Card, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39,
+          columnNumber: 13
+        }
+      }, "布団から出る (:3っ)っ -=三[＿＿]")))))
+    );
+  };
+  _c = App;
+  const Container = _styledComponentsDefault.default.div`
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+`;
+  _c2 = Container;
+  const Header = _styledComponentsDefault.default.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: ${_color.Navy};
+  flex-shrink: 0;
+  color: ${_color.Silver};
+  font-size: 16px;
+  font-weight: bold;
+`;
+  _c3 = Header;
+  const Logo = _styledComponentsDefault.default.div`
+  height: 100%;
+  padding: 16px 0;
+  overflow-y: auto;
+`;
+  const CardFilter = _styledComponentsDefault.default.input`
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  border: solid 1px ${_color.Silver};
+  border-radius: 3px;
+`;
+  const MainArea = _styledComponentsDefault.default.div`
+  height: 100%;
+  padding: 16px 0;
+  overflow-y: auto;
+`;
+  _c4 = MainArea;
+  const HorizontalScroll = _styledComponentsDefault.default.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  > * {
+    margin-left: 16px;
+    flex-shrink: 0;
+  }
+
+  ::after {
+    display: block;
+    flex: 0 0 16px;
+    content: '';
+  }
+`;
+  _c5 = HorizontalScroll;
+  const Column = _styledComponentsDefault.default.div`
+  display: flex;
+  flex-flow: column;
+  width: 355px;
+  height: 100%;
+  border: solid 1px ${_color.Silver};
+  border-radius: 6px;
+  background-color: ${_color.LightSilver};
+
+  > :not(:last-child) {
+    flex-shrink: 0;
+  }
+`;
+  _c6 = Column;
+  const ColumnHeader = _styledComponentsDefault.default.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px;
+`;
+  _c7 = ColumnHeader;
+  const Card = _styledComponentsDefault.default.div`
+  position: relative;
+  border: solid 1px ${_color.Silver};
+  border-radius: 6px;
+  box-shadow: 0 1px 3px hsla(0, 0%, 7%, 0.1);
+  padding: 8px 32px;
+  background-color: ${_color.White};
+  cursor: move;
+`;
+  _c8 = Card;
+  const GlobalStyle = _styledComponents.createGlobalStyle`
+   html, body, #app {
+     height: 100%;
+   }
+   body {
+     /* https://css-tricks.com/snippets/css/system-font-stack/ */
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+     overflow-wrap: break-word;
+   }
+ `;
+  _c9 = GlobalStyle;
+  exports.default = App;
+  _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(_reactDefault.default.Fragment, null, /*#__PURE__*/_reactDefault.default.createElement(GlobalStyle, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 149,
+      columnNumber: 5
+    }
+  }), /*#__PURE__*/_reactDefault.default.createElement(App, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 150,
+      columnNumber: 5
+    }
+  })), document.getElementById('app'));
+  var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9;
+  $RefreshReg$(_c, "App");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "Header");
+  $RefreshReg$(_c4, "MainArea");
+  $RefreshReg$(_c5, "HorizontalScroll");
+  $RefreshReg$(_c6, "Column");
+  $RefreshReg$(_c7, "ColumnHeader");
+  $RefreshReg$(_c8, "Card");
+  $RefreshReg$(_c9, "GlobalStyle");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

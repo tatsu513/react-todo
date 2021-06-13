@@ -1,0 +1,156 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "Column", function () {
+    return Column;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _styledComponents = require('styled-components');
+  var _styledComponentsDefault = _parcelHelpers.interopDefault(_styledComponents);
+  var _color = require('./color');
+  var _Card = require('./Card');
+  var _icon = require('./icon');
+  var _jsxFileName = "/Users/ookawatatsuya/Desktop/react-redux/src/Column.tsx";
+  function Column({title, cards}) {
+    const totalCount = cards.length;
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(Container, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(Header, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(CountBadge, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22,
+          columnNumber: 9
+        }
+      }, totalCount), /*#__PURE__*/_reactDefault.default.createElement(ColumnName, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 9
+        }
+      }, title), /*#__PURE__*/_reactDefault.default.createElement(AddButton, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 9
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(VerticalScroll, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 7
+        }
+      }, cards.map(({id, text}) => /*#__PURE__*/_reactDefault.default.createElement(_Card.Card, {
+        key: id,
+        text: text,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30,
+          columnNumber: 11
+        }
+      }))))
+    );
+  }
+  _c = Column;
+  const Container = _styledComponentsDefault.default.div`
+  display: flex;
+  flex-flow: column;
+  width: 355px;
+  height: 100%;
+  border: solid 1px ${_color.Silver};
+  border-radius: 6px;
+  background-color: ${_color.LightSilver};
+
+  > :not(:last-child) {
+    flex-shrink: 0;
+  }
+`;
+  _c2 = Container;
+  const Header = _styledComponentsDefault.default.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px;
+`;
+  _c3 = Header;
+  const CountBadge = _styledComponentsDefault.default.div`
+  margin-right: 8px;
+  border-radius: 20px;
+  padding: 2px 6px;
+  color: ${_color.Black};
+  background-color: ${_color.Silver};
+  font-size: 12px;
+  line-height: 1;
+`;
+  _c4 = CountBadge;
+  const ColumnName = _styledComponentsDefault.default.div`
+  color: ${_color.Black};
+  font-size: 14px;
+  font-weight: bold;
+`;
+  _c5 = ColumnName;
+  const AddButton = _styledComponentsDefault.default.button.attrs({
+    type: 'button',
+    children: /*#__PURE__*/_reactDefault.default.createElement(_icon.PlusIcon, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76,
+        columnNumber: 13
+      }
+    })
+  })`
+  margin-left: auto;
+  color: ${_color.Black};
+
+  :hover {
+    color: ${_color.Blue};
+  }
+`;
+  _c6 = AddButton;
+  const VerticalScroll = _styledComponentsDefault.default.div`
+  height: 100%;
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+
+  > :not(:first-child) {
+    margin-top: 8px;
+  }
+`;
+  _c7 = VerticalScroll;
+  var _c, _c2, _c3, _c4, _c5, _c6, _c7;
+  $RefreshReg$(_c, "Column");
+  $RefreshReg$(_c2, "Container");
+  $RefreshReg$(_c3, "Header");
+  $RefreshReg$(_c4, "CountBadge");
+  $RefreshReg$(_c5, "ColumnName");
+  $RefreshReg$(_c6, "AddButton");
+  $RefreshReg$(_c7, "VerticalScroll");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
